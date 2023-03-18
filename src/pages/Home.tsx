@@ -1,6 +1,14 @@
-
+import { MovieCard  } from "../components/MovieCard";
 
 export function Home() {
-    return <h1> Home </h1>;
+    return (
+        <div className="row">
+            <MovieCard 
+                title="ASD"
+                description="ASD"
+                img=""
+            />
+        </div>
+    );
 }
 
