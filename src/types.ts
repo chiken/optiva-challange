@@ -1,6 +1,7 @@
 export type MovieState = {
     list: Array<MovieDetail>,
     detail: MovieDetail
+    query: string
 }
 
 export type MoviesList = {
