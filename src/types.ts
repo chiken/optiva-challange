@@ -1,6 +1,6 @@
 export type MovieState = {
-    list: Array<any>,
-    detail: object
+    list: Array<MovieDetail>,
+    detail: MovieDetail
 }
 
 export type MoviesList = {
@@ -12,33 +12,34 @@ export type MoviesList = {
 }
 
 export type MovieDetail = {
-    adult: boolean,
-    backdrop_path: string,
-    budget: number,
-    genres: Array<MovieGenre>
-    homepage: string,
     id: number,
-    imdb_id: number,
-    original_language: string,
-    original_title: string,
-    overview: string,
-    popularity: number,
-    poster_path: string,
-    production_companies: Array<MovieProductionCompany>,
-    production_countries: Array<MovieProductionCountries>,
-    release_date: string,
-    revenue: number,
-    runtime: number,
-    spoken_languages: Array<MovieSpokenLanguages>
-    status: string,
-    tagline: string,
     title: string,
-    video: string,
-    vote_average: number,
-    vote_count: number
+    backdrop_path: string,
+    overview: string,
+    poster_path: string,
+    adult?: boolean,
+    budget?: number,
+    genres?: Array<MovieGenre>
+    imdb_id?: number,
+    homepage?: string,
+    original_language?: string,
+    original_title?: string,
+    popularity?: number,
+    production_companies?: Array<MovieProductionCompany>,
+    production_countries?: Array<MovieProductionCountries>,
+    release_date?: string,
+    revenue?: number,
+    runtime?: number,
+    spoken_languages?: Array<MovieSpokenLanguages>
+    status?: string,
+    tagline?: string,
+    video?: string,
+    vote_average?: number,
+    vote_count?: number
 }
 
 export type MovieCardProps = {
+    id: number,
     title: string,
     description: string,
     img: string,

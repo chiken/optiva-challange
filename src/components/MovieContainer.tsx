@@ -10,9 +10,10 @@ export function MovieContainer() {
             { movies.map((movie: MovieDetail, idx: number) => (
                 <MovieCard
                     key={idx}
+                    id={movie.id}
                     title={movie.title}
                     description={movie.overview}
-                    img={movie.backdrop_path}
+                    img={movie.poster_path}
                 />
             )) }
         </div>
