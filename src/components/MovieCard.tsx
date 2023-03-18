@@ -1,17 +1,11 @@
-
-type MovieCardProps = {
-    title: string,
-    description: string,
-    img: string,
-}
+import { MovieCardProps } from '../types'
 
 export const MovieCard = ({ title, description, img }: MovieCardProps) => {
     return (
         <div className="card col-3" >
-            <img className="card-img-top" src={img} alt={img} />
+            <img className="card-img-top" src={`https://image.tmdb.org/t/p/original${img}`} alt={img} />
             <div className="card-body">
                 <h5 className="card-title">{ title }</h5>
-                <p className="card-text"> { description } </p>
             </div>
         </div>
     )

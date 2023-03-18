@@ -1,14 +1,21 @@
-import { MovieCard  } from "../components/MovieCard";
+import React, { useEffect } from 'react';
+
+import { useDispatch } from 'react-redux'
+import { getMovies } from '../redux/actions/movieActions'
+import { MovieContainer } from "../components/MovieContainer";
+
 
 export function Home() {
+    const dispatch = useDispatch()    
+    
+    useEffect(() => {
+        dispatch(getMovies());
+    });
+    
     return (
-        <div className="row">
-            <MovieCard 
-                title="ASD"
-                description="ASD"
-                img=""
-            />
-        </div>
+        <>
+            <MovieContainer />
+        </>
     );
 }
 
