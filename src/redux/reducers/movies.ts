@@ -2,7 +2,9 @@ import {
     SET_MOVIES,
     SET_MOVIE_DETAIL,
     REMOVE_MOVIE_DETAIL,
-    SET_QUERY_SEARCH
+    SET_QUERY_SEARCH,
+    INCREMENT_LOADING,
+    DECREMENT_LOADING
 } from '../constants'
 
 import { MovieState, MovieDetail } from '../../types'
@@ -11,14 +13,18 @@ export type SetMoviesAction = { type: typeof SET_MOVIES, data: { results: Array<
 export type SetMovieDetailAction = { type: typeof SET_MOVIE_DETAIL, data: MovieDetail };
 export type RemoveMovieDetailAction = { type: typeof REMOVE_MOVIE_DETAIL };
 export type SetQuerySearch = { type: typeof SET_QUERY_SEARCH, data: string };
+export type IncrementLoading = { type: typeof INCREMENT_LOADING };
+export type DecrementLoading = { type: typeof DECREMENT_LOADING };
 
 type MoviesActions =
     | SetMoviesAction
     | SetMovieDetailAction
     | RemoveMovieDetailAction
     | SetQuerySearch
+    | IncrementLoading
+    | DecrementLoading
 
-const moviesState = {
+const moviesState: MovieState = {
     list: [{
         id: 0,
         overview: '',
@@ -33,10 +39,11 @@ const moviesState = {
         backdrop_path: '',
         poster_path: '',
     },
-    query: ''
+    query: '',
+    loading: 0
 };    
 
-export const movieReducer = (state: MovieState = moviesState, action: MoviesActions) => {
+export const movieReducer = (state: MovieState = moviesState, action: MoviesActions) => {    
     switch (action.type) {
         case SET_MOVIES:         
             return {
@@ -58,6 +65,17 @@ export const movieReducer = (state: MovieState = moviesState, action: MoviesActi
             return {
                 ...state,
                 query: action.data,
+            };
+        case INCREMENT_LOADING:
+            
+            return {
+                ...state,
+                loading: state.loading += 1,
+            };
+        case DECREMENT_LOADING:
+            return {
+                ...state,
+                loading: state.loading -= 1,
             };
         default:
             return state;
