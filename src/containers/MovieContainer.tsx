@@ -6,7 +6,7 @@ import { getMovies, setSearchQuery } from "../redux/actions/movieActions";
 import { type MovieState, type MovieDetail } from "../types";
 import { MovieCardComponent, SpinnerComponent } from "../components";
 
-export function MovieContainer() {
+export function MovieContainer(): JSX.Element {
 	const dispatch = useDispatch();
 	const [searchParams, setSearchParams] = useSearchParams();
 
@@ -15,11 +15,11 @@ export function MovieContainer() {
 	let actualPage = useSelector((state: MovieState) => state.page);
 
 	useEffect(() => {
-		dispatch(setSearchQuery(searchParams.get("q") || ""));
+		dispatch(setSearchQuery(searchParams.get("q") as string));
 	}, [dispatch]);
 
 	const renderLoading = (): any => {
-		if (loading)
+		if (loading > 0)
 			return (
 				<div className="col-12 d-flex justify-content-center py-5">
 					<SpinnerComponent />
@@ -27,13 +27,13 @@ export function MovieContainer() {
 			);
 	};
 
-	const handleLoadMore = () => {
+	const handleLoadMore = (): void => {
 		const nextPage = (actualPage += 1);
 		dispatch(getMovies(nextPage));
 	};
 
 	const renderLoadMoreButton = (): any => {
-		if (movies.length > 1 && !loading)
+		if (movies.length > 1 && loading > 0)
 			return (
 				<button className="my-5" onClick={handleLoadMore}>
 					{" "}

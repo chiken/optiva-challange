@@ -8,9 +8,9 @@ import {
 } from "../redux/actions/movieActions";
 import { MovieDetailComponent } from "../components";
 
-export function MovieDetailContainer() {
+export function MovieDetailContainer(): JSX.Element {
 	const dispatch = useDispatch();
-	const movieId: string = useParams().id || "";
+	const movieId: string = useParams().id as string;
 
 	useEffect(() => {
 		dispatch(getMovieDetail(movieId));

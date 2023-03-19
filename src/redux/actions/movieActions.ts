@@ -8,17 +8,26 @@ import {
 } from "../constants";
 
 import { fetchData } from "../../api";
+import { type MovieState } from "../../types";
 
-const { REACT_APP_TMDB_API_KEY: apiKey } = process.env;
+const { REACT_APP_TMDB_API_KEY: apiKey = "" } = process.env;
 
 export function getMovies(page = 1): any {
-	return (dispatch: any, getState: any) => {
+	return async (
+		dispatch: (arg0: {
+			(dispatch: (arg0: { type: string }) => void): void;
+			(dispatch: (arg0: { type: string }) => void): void;
+			type?: string;
+			data?: any;
+		}) => void,
+		getState: () => MovieState
+	) => {
 		dispatch(incrementLoading());
-
-		const query = getState().query;
+		const state: MovieState = getState();
+		const query = state.query;
 		let url = "";
 
-		if (!query) {
+		if (query.length > 0) {
 			url = `movie/now_playing?api_key=${apiKey}`;
 		} else {
 			url = `search/movie?api_key=${apiKey}&query=${query}`;
@@ -26,16 +35,14 @@ export function getMovies(page = 1): any {
 
 		url += `&page=${page}`;
 
-		setTimeout(async () => {
-			await fetchData(url).then((result) => {
-				dispatch({
-					type: SET_MOVIES,
-					data: result.data,
-				});
-
-				dispatch(decrementLoading());
+		await fetchData(url).then((result) => {
+			dispatch({
+				type: SET_MOVIES,
+				data: result.data,
 			});
-		}, 2000);
+
+			dispatch(decrementLoading());
+		});
 	};
 }
 

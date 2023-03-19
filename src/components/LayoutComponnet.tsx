@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { NavbarComponent, SearchInputComponent } from "./index";
 
-export const LayoutComponent = () => {
+export const LayoutComponent = (): JSX.Element => {
 	return (
 		<div className="app">
 			<NavbarComponent />

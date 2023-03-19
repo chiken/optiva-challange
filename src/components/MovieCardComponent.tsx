@@ -8,9 +8,9 @@ export const MovieCardComponent = ({
 	title,
 	description,
 	img,
-}: MovieCardProps) => {
+}: MovieCardProps): JSX.Element => {
 	const navigate = useNavigate();
-	const handleOnClick = () => {
+	const handleOnClick = (): void => {
 		navigate(`${id}`);
 	};
 

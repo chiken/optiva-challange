@@ -2,10 +2,10 @@ import { useSelector } from "react-redux";
 import { type MovieState, type MovieDetail } from "../types";
 import { PillComponent, ImgComponent } from "./index";
 
-export const MovieDetailComponent = () => {
+export const MovieDetailComponent = (): JSX.Element => {
 	const movie: MovieDetail = useSelector((state: MovieState) => state.detail);
 
-	const renderPills = () => {
+	const renderPills = (): JSX.Element[] | undefined => {
 		return movie.genres?.map((genre) => (
 			<PillComponent key={genre.id} id={genre.id} name={genre.name} />
 		));
