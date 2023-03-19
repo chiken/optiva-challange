@@ -1,7 +1,4 @@
-import { MovieContainer } from './MovieContainer'
-import { MovieDetailContainer } from './MovieDetailContainer'
+import { MovieContainer } from "./MovieContainer";
+import { MovieDetailContainer } from "./MovieDetailContainer";
 
-export {
-    MovieContainer,
-    MovieDetailContainer
-}
+export { MovieContainer, MovieDetailContainer };

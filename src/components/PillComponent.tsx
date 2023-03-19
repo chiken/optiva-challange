@@ -1,9 +1,5 @@
-import { PillProps } from '../types'
+import { type PillProps } from "../types";
 
 export const PillComponent = ({ id, name }: PillProps) => {
-    return (
-        <span className="pill">
-            { name }
-        </span> 
-    )
-}
+	return <span className="pill">{name}</span>;
+};

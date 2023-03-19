@@ -5,4 +5,4 @@ export const SpinnerComponent = () => (
 		<div></div>
 		<div></div>
 	</div>
-)
+);
