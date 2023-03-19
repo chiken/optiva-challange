@@ -1,18 +1,21 @@
 import {
 	Routes,
-	Route
+	Route,
+	Navigate
 } from "react-router-dom";
 
-import { Home, MovieDetail } from './pages'
+import { MovieContainer, MovieDetailContainer } from './containers'
 import { LayoutComponent } from './components/LayoutComponnet'
 
 function App() {
     return (
 		<Routes>
-				<Route element={<LayoutComponent/>}>
-					<Route path="/" element={<Home />} />
-					<Route path="movie/:id" element={<MovieDetail />} />
+				<Route path='movies/*' element={<LayoutComponent/>}>
+					<Route index element={<MovieContainer />} />
+					<Route path=":id" element={<MovieDetailContainer />} />
 				</Route>
+
+				<Route path="*" element={<Navigate to="/movies" />} />
 		</Routes>
     )
 }

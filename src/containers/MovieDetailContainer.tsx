@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 
-
 import { useDispatch } from 'react-redux'
 import { getMovieDetail, removeMovieDetail } from '../redux/actions/movieActions'
-import { MovieDetailViewContainer } from "../components/MovieDetailViewContainer";
+import { MovieDetailComponent } from "../components";
 
-export function MovieDetail() {
+export function MovieDetailContainer() {
     const dispatch = useDispatch()
     const movieId: string = useParams().id || '';
 
@@ -18,6 +17,5 @@ export function MovieDetail() {
           }
     });
 
-    return ( <MovieDetailViewContainer /> )
+    return ( <MovieDetailComponent /> )
 }
-

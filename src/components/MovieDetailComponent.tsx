@@ -1,11 +1,8 @@
-import React from 'react';
-
 import { useSelector } from 'react-redux'
 import { MovieState, MovieDetail } from '../types'
-import { PillComponent } from './PillComponent'
-import { ImgComponent } from './ImgComponent'
+import { PillComponent, ImgComponent } from './index'
 
-export const MovieDetailViewContainer = () => {
+export const MovieDetailComponent = () => {
     const movie: MovieDetail = useSelector((state: MovieState) => state.detail);
     
     const renderPills = () => {

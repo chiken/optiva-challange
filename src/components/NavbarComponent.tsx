@@ -2,7 +2,7 @@ import logo from '../assets/logo.jpeg'
 import { useDispatch } from 'react-redux'
 import { setSearchQuery } from '../redux/actions/movieActions'
 
-export default function NavbarComponent () {
+export function NavbarComponent () {
     const dispatch = useDispatch()    
     
     const handleSearch = (event: any) => {

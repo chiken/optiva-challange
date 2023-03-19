@@ -1,12 +1,11 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import { MovieCardProps } from '../types'
-import { ImgComponent } from './ImgComponent'
-
+import { ImgComponent } from './index'
 
 export const MovieCardComponent = ({ id, title, description, img }: MovieCardProps) => {
     const navigate = useNavigate();
-    const handleOnClick = () => navigate(`movie/${id}`);
+    const handleOnClick = () => navigate(`${id}`);
 
     return (
         <div className="card col-12 col-sm-6 col-lg-3 p-2 my-2">
