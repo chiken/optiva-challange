@@ -56,6 +56,11 @@ export type RatingProps = {
     rating: number
 }
 
+export type ImgProps = {
+    path: string,
+    className?: string
+}
+
 type MovieGenre = {
     id: number,
     name: string,
