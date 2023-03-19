@@ -47,9 +47,18 @@ export type MovieCardProps = {
     img: string,
 }
 
+export type PillProps = {
+    id: number,
+    name: string
+}
+
+export type RatingProps = {
+    rating: number
+}
+
 type MovieGenre = {
     id: number,
-    name: String,
+    name: string,
 }
 
 type MovieProductionCompany = {

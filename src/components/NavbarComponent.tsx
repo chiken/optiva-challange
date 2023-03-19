@@ -2,7 +2,7 @@ import logo from '../assets/logo.jpeg'
 import { useDispatch } from 'react-redux'
 import { setSearchQuery } from '../redux/actions/movieActions'
 
-export default function Navbar () {
+export default function NavbarComponent () {
     const dispatch = useDispatch()    
     
     const handleSearch = (event: any) => {
@@ -17,9 +17,9 @@ export default function Navbar () {
                 <img className='navbar-logo' src={logo} alt="" />
                 <h2> Optiva Media </h2>
             </a>
-            <div className="form-inline px-5">
+            {/* <div className="form-inline px-5">
                 <input className="form-control" type="search" placeholder="Search" aria-label="Search"  onKeyDown={handleSearch} />
-            </div>
+            </div> */}
         </nav>
     )
 }

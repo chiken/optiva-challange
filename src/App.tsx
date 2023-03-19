@@ -4,12 +4,12 @@ import {
 } from "react-router-dom";
 
 import { Home, MovieDetail } from './pages'
-import { Layout } from './components/Layout'
+import { LayoutComponent } from './components/LayoutComponnet'
 
 function App() {
     return (
 		<Routes>
-				<Route element={<Layout/>}>
+				<Route element={<LayoutComponent/>}>
 					<Route path="/" element={<Home />} />
 					<Route path="movie/:id" element={<MovieDetail />} />
 				</Route>

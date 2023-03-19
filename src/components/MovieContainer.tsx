@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
-import { MovieCard  } from "../components/MovieCard";
-import { Loader  } from "../components/Loader";
+import { MovieCardComponent  } from "./MovieCardComponent";
+import { LoaderComponent  } from "./LoaderComponent";
 import { MovieState, MovieDetail } from '../types'
 
 export function MovieContainer() {
@@ -11,13 +11,13 @@ export function MovieContainer() {
         const nTimes = movies.length > 1 ? movies.length : 10;
 
         return [...Array(nTimes)].map((movie: MovieDetail, idx: number) => (
-            <Loader key={idx} />
+            <LoaderComponent key={idx} />
         ))
     }
 
     const renderMovies = (): any => {
         return movies.map((movie: MovieDetail, idx: number) => (
-            <MovieCard
+            <MovieCardComponent
                 key={idx}
                 id={movie.id}
                 title={movie.title}

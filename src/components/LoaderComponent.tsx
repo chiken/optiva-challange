@@ -1,6 +1,6 @@
 import ContentLoader from "react-content-loader"
 
-export const Loader = () => (
+export const LoaderComponent = () => (
   <div className='col-12 col-sm-6 col-lg-3 my-2'>
 	<ContentLoader 
 		speed={2}

@@ -4,7 +4,7 @@ import { MovieCardProps } from '../types'
 
 const { REACT_APP_TMDB_IMG_BASE_URL: baseURL } = process.env
 
-export const MovieCard = ({ id, title, description, img }: MovieCardProps) => {
+export const MovieCardComponent = ({ id, title, description, img }: MovieCardProps) => {
     const navigate = useNavigate();
     const handleOnClick = () => navigate(`movie/${id}`);
 

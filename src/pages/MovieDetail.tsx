@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 
 import { useDispatch } from 'react-redux'
 import { getMovieDetail, removeMovieDetail } from '../redux/actions/movieActions'
-import { MovieDetailView } from "../components/MovieDetailView";
+import { MovieDetailViewContainer } from "../components/MovieDetailViewContainer";
 
 export function MovieDetail() {
     const dispatch = useDispatch()
@@ -18,6 +18,6 @@ export function MovieDetail() {
           }
     });
 
-    return ( <MovieDetailView /> )
+    return ( <MovieDetailViewContainer /> )
 }
 
