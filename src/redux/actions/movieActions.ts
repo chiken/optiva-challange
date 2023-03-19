@@ -11,7 +11,7 @@ import { fetchData } from '../../api'
 
 const { REACT_APP_TMDB_API_KEY: apiKey } = process.env
 
-export function getMovies(): any {
+export function getMovies(page = 1): any {
     return (dispatch: any, getState: any) => {
         dispatch(incrementLoading())
 
@@ -23,7 +23,9 @@ export function getMovies(): any {
         } else {
             url = `search/movie?api_key=${apiKey}&query=${query}`
         }
-        
+
+        url += `&page=${page}`
+
         setTimeout(() => {
             return fetchData(url).then(result => {
                 dispatch({

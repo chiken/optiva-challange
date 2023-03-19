@@ -3,6 +3,8 @@ export type MovieState = {
     detail: MovieDetail
     query: string,
     loading: number
+    page: number,
+    totalPages: number
 }
 
 export type MoviesList = {

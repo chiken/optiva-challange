@@ -9,7 +9,7 @@ import {
 
 import { MovieState, MovieDetail } from '../../types'
 
-export type SetMoviesAction = { type: typeof SET_MOVIES, data: { results: Array<MovieDetail> } };
+export type SetMoviesAction = { type: typeof SET_MOVIES, data: { results: Array<MovieDetail>, page: number } };
 export type SetMovieDetailAction = { type: typeof SET_MOVIE_DETAIL, data: MovieDetail };
 export type RemoveMovieDetailAction = { type: typeof REMOVE_MOVIE_DETAIL };
 export type SetQuerySearch = { type: typeof SET_QUERY_SEARCH, data: string };
@@ -40,15 +40,24 @@ const moviesState: MovieState = {
         poster_path: '',
     },
     query: '',
-    loading: 0
+    loading: 0,
+    page: 0,
+    totalPages: 0
 };    
 
 export const movieReducer = (state: MovieState = moviesState, action: MoviesActions) => {    
     switch (action.type) {
-        case SET_MOVIES:         
+        case SET_MOVIES:
+            let list = state.list;
+
+            action.data.page === 1
+                ? list = action.data.results
+                : list = [...list, ...action.data.results]
+            
             return {
                 ...state,
-                list: action.data.results,
+                list,
+                page: action.data.page
             };
 
         case SET_MOVIE_DETAIL:
@@ -65,6 +74,8 @@ export const movieReducer = (state: MovieState = moviesState, action: MoviesActi
             return {
                 ...state,
                 query: action.data,
+                list: moviesState.list,
+                page: moviesState.page
             };
         case INCREMENT_LOADING:
             
