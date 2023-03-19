@@ -1,18 +1,20 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 
-import { getMovies } from '../redux/actions/movieActions'
+import { useSearchParams } from "react-router-dom"
+import { setSearchQuery } from '../redux/actions/movieActions'
 import { MovieState, MovieDetail } from '../types'
 import { MovieCardComponent, LoaderComponent  } from "../components";
 
 export function MovieContainer() {
-    const dispatch = useDispatch()    
+    const dispatch = useDispatch()
+    const [searchParams, setSearchParams] = useSearchParams();
 
     const movies = useSelector((state: MovieState) => state.list);
     const loading = useSelector((state: MovieState) => state.loading);
 
     useEffect(() => {
-        dispatch(getMovies());
+        dispatch(setSearchQuery(searchParams.get('q') || ''));
     }, [dispatch]);
 
     const renderLoading = ():any => {
