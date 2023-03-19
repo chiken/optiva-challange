@@ -7,12 +7,13 @@ export interface MovieState {
 	totalPages: number;
 }
 
-export interface MoviesList {
-	date: object;
-	page: number;
-	result: any[];
-	total_pages: number;
-	total_results: number;
+export interface DataResponseMovieDetail {
+	config: object;
+	data: MovieDetail;
+	headers: any;
+	request: any;
+	status: number;
+	statusText: string;
 }
 
 export interface MovieDetail {

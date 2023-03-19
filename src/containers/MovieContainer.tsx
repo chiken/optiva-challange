@@ -15,7 +15,11 @@ export function MovieContainer(): JSX.Element {
 	let actualPage = useSelector((state: MovieState) => state.page);
 
 	useEffect(() => {
-		dispatch(setSearchQuery(searchParams.get("q") as string));
+		const queryParam: string =
+			searchParams.get("q") !== null
+				? (searchParams.get("q") as string)
+				: "";
+		dispatch(setSearchQuery(queryParam));
 	}, [dispatch]);
 
 	const renderLoading = (): any => {
@@ -33,13 +37,13 @@ export function MovieContainer(): JSX.Element {
 	};
 
 	const renderLoadMoreButton = (): any => {
-		if (movies.length > 1 && loading > 0)
+		if (movies.length > 1 && loading === 0) {
 			return (
 				<button className="my-5" onClick={handleLoadMore}>
-					{" "}
 					LOAD MORE
 				</button>
 			);
+		}
 	};
 
 	const renderMovies = (): any => {

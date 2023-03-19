@@ -65,9 +65,9 @@ const moviesState: MovieState = {
 export const movieReducer = (
 	state: MovieState = moviesState,
 	action: MoviesActions
-) => {
+): MovieState => {
 	switch (action.type) {
-		case SET_MOVIES:
+		case SET_MOVIES: {
 			let list = state.list;
 
 			action.data.page === 1
@@ -79,7 +79,7 @@ export const movieReducer = (
 				list,
 				page: action.data.page,
 			};
-
+		}
 		case SET_MOVIE_DETAIL:
 			return {
 				...state,
