@@ -47,10 +47,12 @@ const moviesState: MovieState = {
 			title: "",
 			backdrop_path: "",
 			poster_path: "",
+			release_date: "00-00-0000",
 		},
 	],
 	detail: {
 		id: 0,
+		release_date: "00-00-0000",
 		overview: "",
 		title: "",
 		backdrop_path: "",

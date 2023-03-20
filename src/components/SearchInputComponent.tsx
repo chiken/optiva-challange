@@ -29,7 +29,7 @@ export const SearchInputComponent = (): JSX.Element => {
 	return (
 		<div className="form-inline px-5">
 			<input
-				className="form-control"
+				className="form-control shadow-sm search-input"
 				type="search"
 				placeholder={query.length > 0 ? query : "Search"}
 				aria-label="Search"

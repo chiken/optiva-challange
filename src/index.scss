@@ -12,9 +12,39 @@ body {
 		"Helvetica Neue", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background-color: $yellow-light !important;
 }
 
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
+}
+
+.search-input {
+	border: none !important;
+	background-color: $brown !important;
+	color: white !important;
+}
+
+.navbar-title {
+	padding: 0 !important;
+}
+
+.load-more-button {
+	border: none;
+	background-color: $brown;
+	color: white;
+	padding: 8px;
+	border-radius: 4px;
+	font-weight: bold;
+}
+
+.movie-detail-title {
+	font-size: 40px !important;
+	padding-top: 40px;
+	padding-bottom: 20px;
+}
+
+.movie-year {
+	font-size: 24px;
 }

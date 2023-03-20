@@ -15,11 +15,11 @@ export const MovieCardComponent = ({
 	};
 
 	return (
-		<div className="card col-12 col-sm-6 col-lg-3 p-2 my-2">
-			<div className="card-container" onClick={handleOnClick}>
+		<div className="card col-12 col-sm-6 col-lg-3 p-4 my-2">
+			<div className="card-container shadow" onClick={handleOnClick}>
 				<ImgComponent path={img} className="card-img-top" />
-				<div className="card-body">
-					<h5 className="card-title">{title}</h5>
+				<div className="card-body d-flex justify-content-center align-items-center">
+					<h5 className="card-title text-center">{title}</h5>
 				</div>
 			</div>
 		</div>

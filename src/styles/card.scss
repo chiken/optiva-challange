@@ -1,8 +1,11 @@
 .card {
 	border: none !important;
+	background-color: transparent !important;
 
-	.card-container {
-		border: 1px solid #ccc;
+	.card-body {
+		min-height: 80px !important;
+		background-color: $blue-light;
+		color: $blue;
 	}
 
 	:hover {

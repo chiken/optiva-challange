@@ -11,19 +11,19 @@ export const MovieDetailComponent = (): JSX.Element => {
 		));
 	};
 
-	return (
-		<div className="row">
-			<div className="row pt-5">
-				<ImgComponent
-					path={movie.poster_path}
-					className="col-12 col-md-4"
-				/>
+	const year = new Date(movie.release_date).getFullYear();
 
-				<div className="col-12 col-md-8 px-4 pt-4 pt-md-0">
-					<h1> {movie.title} </h1>
-					<span> {movie.overview} </span>
-					<div className="pt-2 d-flex flex-wrap">{renderPills()}</div>
-				</div>
+	return (
+		<div className="row pt-5">
+			<ImgComponent path={movie.backdrop_path} className="col-12" />
+
+			<div className="col-12 col-md-10 d-flex flex-column">
+				<h1 className="movie-detail-title">
+					{movie.title}
+					<span className="movie-year"> ({year}) </span>
+				</h1>
+				<span> {movie.overview} </span>
+				<div className="pt-2 d-flex flex-wrap">{renderPills()}</div>
 			</div>
 		</div>
 	);

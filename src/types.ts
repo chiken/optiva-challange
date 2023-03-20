@@ -32,7 +32,7 @@ export interface MovieDetail {
 	popularity?: number;
 	production_companies?: MovieProductionCompany[];
 	production_countries?: MovieProductionCountries[];
-	release_date?: string;
+	release_date: string;
 	revenue?: number;
 	runtime?: number;
 	spoken_languages?: MovieSpokenLanguages[];

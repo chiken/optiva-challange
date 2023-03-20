@@ -39,7 +39,10 @@ export function MovieContainer(): JSX.Element {
 	const renderLoadMoreButton = (): any => {
 		if (movies.length > 1 && loading === 0) {
 			return (
-				<button className="my-5" onClick={handleLoadMore}>
+				<button
+					className="my-5 load-more-button"
+					onClick={handleLoadMore}
+				>
 					LOAD MORE
 				</button>
 			);

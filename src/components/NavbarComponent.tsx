@@ -11,7 +11,7 @@ export function NavbarComponent(): JSX.Element {
 				target="_blank"
 			>
 				<img className="navbar-logo" src={logo} alt="" />
-				<h2> Optiva Media </h2>
+				<h2 className="m-0"> Optiva Media </h2>
 			</a>
 			<div className="d-none d-md-block">
 				<SearchInputComponent />
