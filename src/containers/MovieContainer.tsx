@@ -12,6 +12,7 @@ export function MovieContainer(): JSX.Element {
 
 	const movies = useSelector((state: MovieState) => state.list);
 	const loading = useSelector((state: MovieState) => state.loading);
+	const totalPages = useSelector((state: MovieState) => state.totalPages);
 	let actualPage = useSelector((state: MovieState) => state.page);
 
 	useEffect(() => {
@@ -37,7 +38,10 @@ export function MovieContainer(): JSX.Element {
 	};
 
 	const renderLoadMoreButton = (): any => {
-		if (movies.length > 1 && loading === 0) {
+		const shouldRenderButton =
+			movies.length > 1 && loading === 0 && actualPage !== totalPages;
+
+		if (shouldRenderButton) {
 			return (
 				<button
 					className="my-5 load-more-button"

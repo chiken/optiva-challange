@@ -1,7 +1,12 @@
 import logo from "../assets/logo.jpeg";
+import { useLocation } from "react-router-dom";
+
 import { SearchInputComponent } from "./index";
 
 export function NavbarComponent(): JSX.Element {
+	const location = useLocation();
+	const isHomPage = location.pathname.split("/").length === 2;
+
 	return (
 		<nav className="navbar">
 			<a
@@ -14,7 +19,7 @@ export function NavbarComponent(): JSX.Element {
 				<h2 className="m-0"> Optiva Media </h2>
 			</a>
 			<div className="d-none d-md-block">
-				<SearchInputComponent />
+				{isHomPage && <SearchInputComponent />}
 			</div>
 		</nav>
 	);
