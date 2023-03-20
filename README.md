@@ -2,6 +2,24 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Run the project
+
+Steps to make the project work. Clone it locally:
+
+### `https://github.com/chiken/optiva-challange.git`
+
+Then we need to make a copy from env.example:
+
+### `cp .env.local.example ./env.local`
+
+Install all necessary dependencies:
+
+### `npm install`
+
+And finally run the project with:
+
+### `npm start`
+
 ## Available Scripts
 
 In the project directory, you can run:
